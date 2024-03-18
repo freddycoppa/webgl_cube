@@ -73,12 +73,20 @@
                 color: #ba9ffb;
             }
         </style>
+        <script>
+            function directionsButtonClick(button) {
+                button.textContent = directionsButtonClick.toggle ? 'v' : '>';
+                document.getElementById("directions").style.display = directionsButtonClick.toggle ? 'block' : 'none';
+                directionsButtonClick.toggle = !directionsButtonClick.toggle;
+            }
+            directionsButtonClick.toggle = true;
+        </script>
     </head>
     <body>
         <div id="text">
             <h1 class="center">3x3 Rubik's Cube Simulation</h1>
-            <h3>Directions:</h2>
-            <p>
+            <h3>Directions <button onclick="directionsButtonClick(this)">></button></h2>
+            <div id="directions" style="display: none">
                 <ol>
                     <li>To rotate the entire cube, click and drag.</li>
                     <li>
@@ -130,7 +138,7 @@
                     <li>Press <code>j</code> to <button>jumble</button></li>
                     <li>Press <code>p</code> for a <button>pretty pattern</button></li>
                 </ol>
-            </p>
+            </div>
         </div>
         <br/>
         
