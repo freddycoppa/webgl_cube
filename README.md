@@ -17,3 +17,5 @@ Besides these, here are some features that I've wished to implement but haven't 
   - A complimentary feature to this would be a list of Rubik's Cube patterns, besides the checkerboard, with their corresponding algorithms
 - Cube Solver
   - This uses group theory & graph theory to compute an optimal algorithm to return the cube to its unscrambled state, which could then be executed in the above-mentioned algorithm interpreter, thus solving the cube
+
+The cube can be found at [freddycoppa.github.io/webgl_cube](https://freddycoppa.github.io/webgl_cube/)
