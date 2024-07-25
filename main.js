@@ -35,7 +35,7 @@ window.onload = async function () {
         sideToBeRotated = new Float32Array(3),
         sideRotation = identify3x3(new Float32Array(9));
 
-    document.onkeypress = clickToTurn(cube, renderer); // canvas.onkeypress?
+    document.onkeydown = clickToTurn(cube, renderer);
 
     await renderer.draw({
         projection: perspectiveInit(renderer),

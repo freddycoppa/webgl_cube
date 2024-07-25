@@ -5,11 +5,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>WebGL Rubik's Cube</title>
-        <!-- <script src="node_modules/gl-matrix/gl-matrix.js" defer></script> -->
-        <script type="module" src="./main.js" async></script>
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+        <script type="module" src="./main.js" async></script>
         <style>
 			/* * {
 				margin: 0;
@@ -63,7 +66,7 @@
                 text-align: center;
             }
 
-            #text {
+            .text {
                 padding-left: 10%;
                 padding-right: 10%;
             }
@@ -71,6 +74,10 @@
             button {
                 background-color: #282828;
                 color: #ba9ffb;
+            }
+
+            code {
+                color: #1ECBE1;
             }
         </style>
         <script>
@@ -83,68 +90,143 @@
         </script>
     </head>
     <body>
-        <div id="text">
+        <div class="text">
             <h1 class="center">3x3 Rubik's Cube Simulation</h1>
             <h3>Directions <button onclick="directionsButtonClick(this)">></button></h2>
             <div id="directions" style="display: none">
                 <ol>
                     <li>To rotate the entire cube, click and drag.</li>
                     <li>
-                        To turn a face clockwise, type the first letter of that face's color (the color of its center square):
+                        To turn a face clockwise, type the first letter of that face's color
+                        (the color of its center square):
                         <ul style="list-style-type:none;">
                             <li>
-                                <code>g</code> for <button style="color:chartreuse">&#x21BB green</button>
+                                <code>g</code>
+                                for
+                                <button
+                                    style="color:chartreuse"
+                                    onclick="document.onkeydown({ key: 'g', ctrlKey: false })"
+                                >&#x21BB; green</button>
                             </li>
                             <li>
-                                <code>y</code> for <button style="color: yellow">&#x21BB yellow</button>
+                                <code>y</code>
+                                for
+                                <button
+                                    style="color: yellow"
+                                    onclick="document.onkeydown({ key: 'y', ctrlKey: false })"
+                                >&#x21BB; yellow</button>
                             </li>
                             <li>
-                                <code>r</code> for <button style="color: red">&#x21BB red</button>
+                                <code>r</code>
+                                for
+                                <button
+                                    style="color: red"
+                                    onclick="document.onkeydown({ key: 'r', ctrlKey: false })"
+                                >&#x21BB; red</button>
                             </li>
                             <li>
-                                <code>b</code> for <button style="color:deepskyblue">&#x21BB blue</button>
+                                <code>b</code>
+                                for
+                                <button
+                                    style="color:deepskyblue"
+                                    onclick="document.onkeydown({ key: 'b', ctrlKey: false })"
+                                >&#x21BB; blue</button>
                             </li>
                             <li>
-                                <code>w</code> for <button style="color: white">&#x21BB white</button>
+                                <code>w</code>
+                                for
+                                <button
+                                    style="color: white"
+                                    onclick="document.onkeydown({ key: 'w', ctrlKey: false })"
+                                >&#x21BB; white</button>
                             </li>
                             <li>
-                                <code>o</code> for <button style="color: orange">&#x21BB orange</button>
+                                <code>o</code>
+                                for
+                                <button
+                                    style="color: orange"
+                                    onclick="document.onkeydown({ key: 'o', ctrlKey: false })"
+                                >&#x21BB; orange</button>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        To turn a face counterclockwise, hit <code>ctrl</code> + the first letter of that face's color:
+                        To turn a face counterclockwise, hit
+                        <code>ctrl +</code>
+                        the first letter of that face's color:
                         <ul style="list-style-type:none;">
                             <li>
-                                <code>ctrl + g</code> for <button style="color:chartreuse">&#x21BA green</button>
+                                <code>ctrl + g</code>
+                                for
+                                <button
+                                    style="color:chartreuse"
+                                    onclick="document.onkeydown({ key: 'g', ctrlKey: true })"
+                                >&#x21BA; green</button>
                             </li>
                             <li>
-                                <code>ctrl + y</code> for <button style="color: yellow">&#x21BA yellow</button>
+                                <code>ctrl + y</code>
+                                for
+                                <button
+                                    style="color: yellow"
+                                    onclick="document.onkeydown({ key: 'y', ctrlKey: true })"
+                                >&#x21BA; yellow</button>
                             </li>
                             <li>
-                                <code>ctrl + r</code> for <button style="color: red">&#x21BA red</button>
+                                <code>ctrl + r</code>
+                                for
+                                <button
+                                    style="color: red"
+                                    onclick="document.onkeydown({ key: 'r', ctrlKey: true })"
+                                >&#x21BA; red</button>
                             </li>
                             <li>
-                                <code>ctrl + b</code> for <button style="color:deepskyblue">&#x21BA blue</button>
+                                <code>ctrl + b</code>
+                                for
+                                <button
+                                    style="color:deepskyblue"
+                                    onclick="document.onkeydown({ key: 'b', ctrlKey: true })"
+                                >&#x21BA; blue</button>
                             </li>
                             <li>
-                                <code>ctrl + w</code> for <button style="color: white">&#x21BA white</button>
+                                <code>ctrl + w</code>
+                                for
+                                <button
+                                    style="color: white"
+                                    onclick="document.onkeydown({ key: 'w', ctrlKey: true })"
+                                >&#x21BA; white</button>
                             </li>
                             <li>
-                                <code>ctrl + o</code> for <button style="color: orange">&#x21BA orange</button>
+                                <code>ctrl + o</code>
+                                for
+                                <button
+                                    style="color: orange"
+                                    onclick="document.onkeydown({ key: 'o', ctrlKey: true })"
+                                >&#x21BA; orange</button>
                             </li>
                         </ul>
                     </li>
-                    <li>Press <code>j</code> to <button>jumble</button></li>
-                    <li>Press <code>p</code> for a <button>pretty pattern</button></li>
+                    <li>
+                        Press
+                        <code>j</code>
+                        to
+                        <button onclick="document.onkeydown({ key: 'j' })">jumble</button>
+                    </li>
+                    <li>
+                        Press
+                        <code>p</code>
+                        for a
+                        <button onclick="document.onkeydown({ key: 'p' })">pretty pattern</button>
+                    </li>
                 </ol>
             </div>
         </div>
+
         <br/>
         
         <canvas id="cube-canvas">
             Your browser does not support HTML 5
         </canvas>
+        <br><br>
         <script>
 			function resize(canvas) {
             	canvas.width = canvas.parentElement.clientWidth * 0.8;
