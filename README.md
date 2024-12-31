@@ -6,7 +6,7 @@ involving concepts such as 3D Graphics, Shaders, Matrices, Linear Algebra, Gener
 It incorporates the following features:
 - An interactive 3x3 Rubik's Cube that can
   - be viewed at all angles by rotating it with a drag of the mouse
-  - have its faces turned with key/button presses to yield the any of its 43 quintillion combinations
+  - have its faces turned with key/button presses to yield any of its 43 quintillion combinations
   - be scrambled through 50 random moves that can pose a serious challenge to undo
 - The quintessential "checkerboard" pattern is automated via yet another key/button
 - All of the above-mentioned actions are beautifully animated using an ease-in-out function
